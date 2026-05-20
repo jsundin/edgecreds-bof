@@ -17,6 +17,7 @@ Arguments:
 [*] Got output:
 [*] Searching for 'msedge.exe'
 [+] Process opened: 2404
+[+] Process owner: VANTARAOPS\jmorris
 [+] Username: jmorris
     Password: J[**]3 
 
