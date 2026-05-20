@@ -1,7 +1,7 @@
 {
     "name": "edgecreds",
     "version": "v0.0.1",
-    "command_name": "boffe",
+    "command_name": "edgecreds",
     "extension_author": "jsundin",
     "repo_url": "https://github.com/jsundin/edgecreds-bof",
     "depends_on": "coff-loader",
