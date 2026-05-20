@@ -45,14 +45,6 @@ size_t strlen2(const char *s) {
     return p-s;
 }
 
-size_t strlenw2(const wchar_t *s) {
-    const wchar_t *p = s;
-    while (*p) {
-        p++;
-    }
-    return p-s;
-}
-
 LPVOID *malloc2(SIZE_T len) {
     return KERNEL32$VirtualAlloc(NULL, len, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 }
@@ -90,20 +82,15 @@ void printTokenInfo(HANDLE hProc) {
     PSID sid = tu->User.Sid;
 
     // sid -> name
-    WCHAR name[64];
-    WCHAR domain[64];
+    char name[64];
+    char domain[64];
     DWORD cchName = 64;
     DWORD cchDomain = 64;
     SID_NAME_USE use;
     
-    ADVAPI32$LookupAccountSidW(NULL, sid, name, &cchName, domain, &cchDomain, &use);
+    ADVAPI32$LookupAccountSidA(NULL, sid, name, &cchName, domain, &cchDomain, &use);
 
-    // this isn't the prettiest wchar->char conversion, but it kinda works
-    BeaconPrintf(0, "[+] Process owner: ");
-    BeaconOutput(0, (char*)domain, strlenw2(domain)*2);
-    BeaconOutput(0, "\\", 1);
-    BeaconOutput(0, (char*)name, strlenw2(name)*2);
-    BeaconOutput(0, "\n", 1);
+    BeaconPrintf(0, "[+] Process owner: %s\\%s\n", domain, name);
 }
 #endif
 

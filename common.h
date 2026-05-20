@@ -32,5 +32,5 @@ DECLSPEC_IMPORT BOOL WINAPI KERNEL32$Process32NextW(HANDLE hSnapshot, void *lppe
 #ifdef PRINT_PROCESS_OWNER
 DECLSPEC_IMPORT BOOL WINAPI KERNEL32$OpenProcessToken(HANDLE ProcessHandle, DWORD DesiredAccess, PHANDLE TokenHandle);
 DECLSPEC_IMPORT BOOL WINAPI ADVAPI32$GetTokenInformation(HANDLE TokenHandle, TOKEN_INFORMATION_CLASS TokenInformationClass, LPVOID TokenInformation, DWORD TokenInformationLength, PDWORD ReturnLength);
-DECLSPEC_IMPORT BOOL WINAPI ADVAPI32$LookupAccountSidW(LPCWSTR lpSystemName, PSID lpSid, LPWSTR Name, LPDWORD cchName, LPWSTR DomainName, LPDWORD cchDomainName, PSID_NAME_USE peUse);
+DECLSPEC_IMPORT BOOL WINAPI ADVAPI32$LookupAccountSidA(LPCSTR lpSystemName, PSID lpSid, LPSTR Name, LPDWORD cchName, LPSTR DomainName, LPDWORD cchDomainName, PSID_NAME_USE peUse);
 #endif
