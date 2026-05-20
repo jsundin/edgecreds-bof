@@ -1,0 +1,36 @@
+{
+    "name": "edgecreds",
+    "version": "v0.0.1",
+    "command_name": "boffe",
+    "extension_author": "jsundin",
+    "repo_url": "https://github.com/jsundin/edgecreds-bof",
+    "depends_on": "coff-loader",
+    "entrypoint": "go",
+    "help": "nope",
+    "files": [
+        {
+            "os": "windows",
+            "arch": "amd64",
+            "path": "edgecreds.x64.o"
+        },
+        {
+            "os": "windows",
+            "arch": "x86",
+            "path": "edgecreds.x86.o"
+        }
+    ],
+    "arguments": [
+        {
+            "name": "process",
+            "desc": "Process name (e.g, msedge.exe)",
+            "type": "string",
+            "optional": true
+        },
+        {
+            "name": "pid",
+            "desc": "Process id (e.g, 1337)",
+            "type": "integer",
+            "optional": true
+        }
+    ]
+}
